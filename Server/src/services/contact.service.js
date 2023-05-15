@@ -18,14 +18,7 @@ class ContactService {
     }
   }
 
-  static async addContact(data) {
-    try {
-      const contact = new Contact(data);
-      return await contact.save();
-    } catch (error) {
-      throw error;
-    }
-  }
+ 
 
   static async update(id, data) {
     try {
