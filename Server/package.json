@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goranjako/Two-Factor-Authentication-System-in-MEAN.git"
+  },
+  "keywords": [
+    "Email",
+    "verify",
+    "otp",
+    "authentication"
+  ],
+  "author": "Goran jakovljevic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goranjako/Two-Factor-Authentication-System-in-MEAN/issues"
+  },
+  "homepage": "https://github.com/goranjako/Two-Factor-Authentication-System-in-MEAN#readme"
+}
