@@ -34,6 +34,11 @@ const ContactSchema = new Schema(
       ref: 'User',
       required: true
   },
+  emailVerificationCode: {type:String},
+  verified: {
+    type: Boolean,
+    default: false,
+  },
     createdAt: {
         type: Date,
         default: Date.now
