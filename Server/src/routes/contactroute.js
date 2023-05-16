@@ -7,6 +7,7 @@ import authManager from '../util/auth';
 
 const router = express.Router();
 router.post('/',authManager.verifyToken,validateContactBody(),validate,ContactController.create);
+router.post('/verify',authManager.verifyToken,ContactController.verify);
 router.get('/',authManager.verifyToken,ContactController.getAll);
 router.get('/:id',authManager.verifyToken,ContactController.get);
 router.put('/:id',authManager.verifyToken,validateContactBody(),validate,ContactController.put);

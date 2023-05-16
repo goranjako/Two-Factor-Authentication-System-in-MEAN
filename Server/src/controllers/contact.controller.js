@@ -17,6 +17,7 @@ class contactController {
   // Insert
   async create(req, res) {
     const otp = otpgenerator.generateOTP(6);
+    console.log(otp)
     try {
       if (!req.body.email || !req.body.userId) {
         res.json({ success: false, msg: "Please pass email " });
@@ -43,13 +44,13 @@ class contactController {
             pass: process.env.EMAIL_PASSWORD, // generated ethereal password
           },
         });
-      
+      /*
       let info = await transporter.sendMail({
           to: newUser.email, // list of receivers${otp} 
           subject: 'Email verifaction',
           html: `<p>Enter the otp:<span style="color: tomato;font-size: 25px;letter-spacing: 2px;"> <b> ${otp} </b> </span>to verify your email address</p>`
           
-        }); 
+        }); */
         const data = new Contact(newContant);
         const obj = await data.save();
         return res
