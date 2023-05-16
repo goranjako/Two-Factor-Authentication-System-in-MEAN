@@ -1,5 +1,4 @@
 import ContactService from "../services/contact.service";
-import jwt from "jsonwebtoken";
 import Contact from "../models/contact";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
