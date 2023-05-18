@@ -13,12 +13,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { Interceptor } from './shared/interceptor.interceptor';
 import { NotFoundComponent } from './index/not-found/not-found.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { VerifyComponent } from './auth/verify/verify.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    RegisterComponent,
+    LoginComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule, RouterModule,
