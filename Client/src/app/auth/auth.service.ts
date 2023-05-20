@@ -22,13 +22,6 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
-  static isLogedin():
-    | boolean
-    | import('@angular/router').UrlTree
-    | Observable<boolean | import('@angular/router').UrlTree>
-    | Promise<boolean | import('@angular/router').UrlTree> {
-    throw new Error('Method not implemented.');
-  }
 
   userid: any;
   apiUrl = environment.apiUrl;
@@ -42,11 +35,10 @@ export class AuthService {
   //Verify
   verify(data: any): Observable<any> {
     return this.http.post<any>(this.apiUrl + '/verify', data).pipe(
-      map((dat) => {
-        if (dat) {
-          localStorage.setItem('usertoken', JSON.stringify(dat));
+      map((token) => {
+        if (token) {
+          localStorage.setItem('usertoken', JSON.stringify(token));
         }
-
         return data;
       })
     );
