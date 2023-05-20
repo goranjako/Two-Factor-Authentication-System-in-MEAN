@@ -1,0 +1,107 @@
+<p>register works!</p>
+<div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 50px">
+    <mat-card
+      class="text-center"
+      fxFlex.xs="100%"
+      fxFlex.gt-md="25%"
+      fxFlex.sm="33%"
+      style="margin-bottom: 2px"
+    >
+      <mat-card-title>Register</mat-card-title>
+      <mat-card-content>
+        <form
+          [formGroup]="registerForm"
+          (ngSubmit)="onSubmit(registerForm.value)"
+        >
+        <p>
+          <mat-form-field class="example-full-width">
+            <mat-icon matSuffix>people</mat-icon>
+            <input
+              type="text"
+              matInput
+              placeholder="UserName"
+              formControlName="userName"
+              name="userName"
+            />
+            <mat-icon
+              matSuffix
+              *ngIf="!registerForm.get('userName')?.errors"
+              color="success"
+              >check_circle</mat-icon
+            >
+            <mat-error *ngIf="userName?.errors?.['required']">
+              userName is required
+            </mat-error>
+            <mat-error *ngIf="registerForm.value.userName">
+              Error! UserName must contain 2 or more sharacters!
+            </mat-error>
+          </mat-form-field>
+        </p>
+          <p>
+            <mat-form-field class="example-full-width">
+              <input
+                type="email"
+                matInput
+                placeholder="Email address"
+                formControlName="email"
+                name="email"
+              />
+              <mat-icon matSuffix>mail_outline blue-color</mat-icon>
+              <mat-icon
+                matSuffix
+                *ngIf="!registerForm.get('email')?.errors"
+                color="success"
+                >check_circle</mat-icon
+              >
+              <mat-error *ngIf="email?.errors?.['required']">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="registerForm.value.email">
+                Please enter a correct email format
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="example-full-width">
+              <input
+                type="password"
+                matInput
+                placeholder="Enter your password"
+                formControlName="password"
+                name="password"
+              />
+              <mat-icon matSuffix>lock</mat-icon>
+              <mat-icon
+                matSuffix
+                *ngIf="!registerForm.get('password')?.errors"
+                color="success"
+                >check_circle</mat-icon
+              >
+              <mat-error *ngIf="password?.errors?.['required']">
+                Passvord is required
+              </mat-error>
+              <mat-error *ngIf="registerForm.value.password">
+                Error! Password must contain 8 or more sharacters
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <mat-card-actions fxLayoutAlign="center center" class="mb-2 px-3">
+            <button
+              mat-stroked-button
+              color="primary"
+              class="button-p button2"
+              [disabled]="!registerForm.valid"
+            >
+              Register
+            </button>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <ngx-spinner bdColor = "#f5f5f5" size = "medium" color="#4285F4" type = "ball-spin-clockwise-fade" [fullScreen] = "true">
+    <p  style="font-size: 20px; color:#4285F4" > Loading... </p>
+  </ngx-spinner>
+
+
