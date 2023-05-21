@@ -5,10 +5,11 @@ import { RegisterComponent } from './auth/register/register.component';
 import { VerifyComponent } from './auth/verify/verify.component';
 
 const routes: Routes = [
-  {path:"", component:LoginComponent},
+{path:"", component:LoginComponent},
 {path:"login", component:LoginComponent},
 {path:"register", component:RegisterComponent},
-{path:"verifi", component: VerifyComponent},
+{path:"verify", component: VerifyComponent},
+{ path: 'contacts', loadChildren: () => import('./contacts/contacts.module').then(m => m.ContactsModule) },
 {path:"**",redirectTo:"login", pathMatch:"full"}
 ];
 

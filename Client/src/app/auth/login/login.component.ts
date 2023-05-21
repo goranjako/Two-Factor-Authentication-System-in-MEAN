@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         next: (res:any) => {
           this.loading.hide();
           this.toast.success(res.msg);
-          this.router.navigate(['/']);
+          this.router.navigate(['/contacts']);
           this.loginForm.reset();
           this.loginService.getToken();
           this.loading.hide();
@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
         error: (err:any) => {
           this.toast.err(err.error.msg);
           this.loginForm.reset();
+          this.router.navigate(['register']);
           this.loading.hide();
         },
       });

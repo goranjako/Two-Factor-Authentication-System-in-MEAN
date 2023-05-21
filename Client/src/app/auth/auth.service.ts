@@ -66,7 +66,7 @@ export class AuthService {
 
   //GetToken
   getToken() {
-    const token: any = localStorage.getItem('jwt');
+    const token: any = localStorage.getItem('usertoken');
     const decode = jwt_decode(token);
     return decode;
   }
