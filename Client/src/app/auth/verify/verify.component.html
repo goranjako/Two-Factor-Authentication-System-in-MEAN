@@ -6,7 +6,7 @@
     fxFlex.sm="33%"
     style="margin-bottom: 2px"
   >
-    <mat-card-title>Login</mat-card-title>
+  <mat-card-title style="padding: 3%;">Enter 6 digit OTP sent to your email address.</mat-card-title><br>
     <mat-card-content>
       <form
         [formGroup]="loginForm"
@@ -21,7 +21,7 @@
               formControlName="otp"
               name="otp"
             />
-            <mat-icon matSuffix>mail_outline blue-color</mat-icon>
+            <mat-icon matSuffix>screen_lock_portrait</mat-icon>
             <mat-icon
               matSuffix
               *ngIf="!loginForm.get('otp')?.errors"
