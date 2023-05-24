@@ -1,1 +1,50 @@
-<p>contacts works!</p>
+<ng-container *ngIf="contacts; else elseTemplate">
+  <div class="content ">
+    <div style="padding: 1%; width: 2%; margin-left: 90%;"  > <img style="color: blue ;" mat-card-image src="../../assets/Person.png"
+      (click)="add()" alt="Contacts" /></div>
+    <div fxLayout="row wrap" fxLayoutGap="16px grid" >
+  
+      <div
+        [fxFlex]="100 / gridColumns + '%'"
+        fxFlex.xs="100%"
+        fxFlex.sm="33%"
+        *ngFor="let item of contacts|async"
+      >
+  
+        <mat-card class=" mat-elevation-z4">
+          <mat-card-header style="margin-left: auto; margin-left: auto">
+            <mat-card-title>
+              <h1>{{ item.firstName + " " + item.lastName }}</h1></mat-card-title
+            >
+          </mat-card-header>
+          <div fxLayout="row wrap">
+            <mat-card-content style="margin: 2%" fxFlex="10">
+              <img mat-card-image src="../../assets/contact.png" alt="Contacts" />
+            </mat-card-content>
+            <mat-card-content
+              fxLayout="column "
+              style="margin-left: 10%"
+              fxFlex="70"
+            >
+              <p><strong>Address: </strong>{{ item.address }}</p>
+              <p><strong>Email: </strong>{{ item.email }}</p>
+              <p><strong>Phone: </strong>{{ item.phone }}</p>
+              <p><strong>Verify: </strong>{{ item.verify }}</p>
+            </mat-card-content>
+          </div>
+          <mat-card-actions fxLayoutAlign="end">
+            <button mat-button (click)="edit(item)">Edit</button>
+            <button mat-button (click)="delete(item._id)">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  
+  </ng-container>
+  
+  <ng-template #elseTemplate>
+    <ngx-spinner bdColor = "#f5f5f5" size = "medium" color="#4285F4" type = "ball-spin-clockwise-fade" [fullScreen] = "true">
+      <p  style="font-size: 20px; color:#4285F4" > Loading... </p>
+    </ngx-spinner>
+  </ng-template>
