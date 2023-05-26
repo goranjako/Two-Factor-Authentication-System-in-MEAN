@@ -7,6 +7,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { map } from 'rxjs/operators';
 import { Contact } from './contact';
 import { SwalService } from '../shared/swal.service';
 
@@ -29,6 +30,10 @@ export class ContactService {
   postContact(f: any): Observable<any> {
     return this.http
       .post(this.ContactUrl, f)
+      .pipe(catchError(this.handleError));
+  }
+  verify(data: any): Observable<any> {
+    return this.http.post<any>(this.ContactUrl + '/verify', data)
       .pipe(catchError(this.handleError));
   }
 

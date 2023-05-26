@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ContactService } from './contact.service';
 import { AuthService } from '../auth/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Contact } from './contact';
@@ -23,16 +24,17 @@ export class ContactsComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private contactService: ContactService,
     private token: AuthService,
     private loading: NgxSpinnerService
   ) {
-   
+
   }
   contacts: any;
   user: any;
   userId: any;
   ngOnInit(): void {
-    
+
   }
   trackByMethod(index: number, data: Contact) {
     return data._id;
@@ -56,12 +58,13 @@ export class ContactsComponent implements OnInit {
         reverseButtons: true,
       })
       .then((result) => {
-        if (result.isConfirmed) { 
+        if (result.isConfirmed) {
           this.swalWithBootstrapButtons.fire(
             'Deleted!',
             'Your contact has been deleted.',
             'success'
           );
+          this.contactService.deleteContact(id);
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
